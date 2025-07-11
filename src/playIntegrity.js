@@ -180,7 +180,7 @@ export async function verifyPlayIntegrity(
     if (
       appIntegrity?.certificateSha256Digest == null ||
       appIntegrity.certificateSha256Digest.some((e) =>
-        validCertificateSha256Digest.includes(e)
+        !validCertificateSha256Digest.includes(e)
       )
     ) {
       if (errorAndExit(res, `Invalid certificateSha256Digest`)) return false;
